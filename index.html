@@ -34,6 +34,18 @@
   </main>
   <footer><div class="wrap">経営者向け特別勉強会　｜　オンライン生配信</div></footer>
   <div class="mobile-cta"><a class="cta" href="https://form.run/@writeup-CAklrmUfSB8Akb10kEDv" target="_blank" rel="noopener noreferrer"><span>無料で参加を申し込む</span><b aria-hidden="true">↗</b></a></div>
+  <script>
+    (() => {
+      // LPの ?referrer= をformrunの非表示テキスト項目へ渡す。
+      const referrer = new URLSearchParams(window.location.search).get('referrer')?.trim();
+      if (!referrer) return;
+      document.querySelectorAll('a[href^="https://form.run/@writeup-CAklrmUfSB8Akb10kEDv"]').forEach((link) => {
+        const formUrl = new URL(link.href);
+        formUrl.searchParams.set('_field_14', referrer.slice(0, 100));
+        link.href = formUrl.toString();
+      });
+    })();
+  </script>
 </body>
 </html>
 
